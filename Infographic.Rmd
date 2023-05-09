@@ -1,0 +1,74 @@
+---
+title: "Infographic"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(ggrepel)
+```
+
+
+```{r}
+mydata = read.csv("DATA.csv", header=TRUE)
+attach(mydata)
+subset_data <- subset(mydata, Playoffs == 5)
+subset_data <- subset_data[, c("Year", "Team", "Payroll", "Wins","Team")]
+all_teams <- c("Yankees", "BlueJays", "RedSox", "Tampa", "Orioles", "WhiteSox", "Royals", "Twins","Tigers", "Guardians", "Astros", "Angels", "Athletics","Mariners", "Rangers", "Mets", "Phillies", "Nationals", "Marlins","Braves,", "Brewers", "Cubs", "Cardinals","Pirates", "Reds", "Giants", "Diamondbacks", "Dodgers", "Rockies", "Padres")
+# Subset the data for the specified teams
+team_summary <- mydata %>%
+  group_by(Team) %>%
+  summarize(avg_payroll = mean(Payroll), avg_wins = mean(Wins))
+mydata_sub <- mydata[mydata$Team %in% all_teams,]
+team_summary <- mydata %>%
+  group_by(Team) %>%
+  summarize(avg_payroll = mean(Payroll), avg_wins = mean(Wins))
+#print(team_summary)
+```
+
+
+
+
+
+
+
+```{r, echo = FALSE}
+###INFOGRAPGHIC
+ 
+my_font <- "Arial"
+
+mydata_sub <- mydata[mydata$Team %in% all_teams,]
+
+# Create a vector of team names
+teams <- c("Yankees", "WhiteSox", "Royals", "RedSox", "Phillies", "Nationals", "Marlins", "Giants", "Diamondbacks", "Cubs", "Cardinals", "Braves", "Astros", "Angels")
+
+# Subset data for selected teams
+team_payroll <- team_summary$Payroll[team_summary$Team %in% teams]
+
+# Create histogram
+ggplot(data.frame(Payroll = team_payroll), aes(x = Payroll)) +
+  geom_histogram(fill = "green", color = "white", bins = 15) +
+  ggtitle("Payroll Distribution of World Series Winners") +
+  xlab("Payroll (in millions)") +
+  ylab("Frequency")
+
+
+ggplot(subset_data, aes(x = Payroll, y = Wins, label = Team)) +
+  geom_point() +
+  geom_text_repel() +
+  xlab("Payroll") +
+  ylab("Wins") +
+  ggtitle("Scatterplot of Average Wins vs. Average Payroll for Each Team") +
+  theme_gray() + geom_smooth(method = "lm", se = FALSE, color = "red") + # Add the linear regression line
+  xlab("Payroll") +
+  ylab("Wins") +
+  ggtitle("Scatterplot of Wins vs. Payroll for World Series Winners")
+
+```
+
+

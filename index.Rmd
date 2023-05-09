@@ -1,0 +1,20 @@
+---
+title: "My Website"
+description: |
+  Welcome to the website. I hope you enjoy it!
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+Bio: 
+  My name is Mitch Mauriello, I am a statistics major at Bucknell University currently finishing my fourth semester and taking MATH230. I have always had a love for baseball as it was my favorite sport to play growing up. However, as I got older I realized how interesting the finances within the MLB are. There's no salary cap in the MLB meaning that teams can spend whatever they want on whoever they want. This dynamic is unlike any other sport and intrigued me to evaluate how much of an advantage this gives to teams in a big market over those that don't have alot of money to spend. 
