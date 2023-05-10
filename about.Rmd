@@ -29,7 +29,10 @@ data("EuStockMarkets")
 data(StudentSurvey)
 ```
 
+
+
 Bucknell Phyllotaxis
+
 
 
 ```{r}
@@ -37,7 +40,10 @@ artwork1 = canvas_phyllotaxis(colors = c("blue", "orange"))
 print(artwork1)
 ```
 
+
+
 Ying & Yang
+
 
 
 ```{r}
@@ -45,7 +51,10 @@ artwork2 = canvas_stripes(colors = c("black", "white"))
 print(artwork2)
 ```
 
+
+
 American Pixels
+
 
 
 ```{r}
