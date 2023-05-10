@@ -30,18 +30,24 @@ data(StudentSurvey)
 ```
 
 Bucknell Phyllotaxis
+
+
 ```{r}
 artwork1 = canvas_phyllotaxis(colors = c("blue", "orange"))
 print(artwork1)
 ```
 
 Ying & Yang
+
+
 ```{r}
 artwork2 = canvas_stripes(colors = c("black", "white"))
 print(artwork2)
 ```
 
 American Pixels
+
+
 ```{r}
 artwork3 = canvas_diamonds(colors = c("red", "white","blue"))
 print(artwork3)
@@ -49,8 +55,11 @@ print(artwork3)
 
 Title: First 730 Values for DAX
 Data Set Description: 
+
   Our data set is compiled of European Stock market data where the indices included are Germany (DAX), UK (FTSE), Belgium (BEL20), Switzerland (SSMI), Denmark (OMX), France (CAC), Italy (MIB30), and the Netherlands (AEX). 
+  
 Visualization Description: 
+
   Our visualization shows a fraction of the DAX stock market data-specifically the first 730 values-and the market fluctuations on each given day. The color scale indicates red for extreme fluctuations and green for passive fluctuation. 
 
 
@@ -93,10 +102,14 @@ ggplot_calendar_heatmap(dfData1, "DateCol", "ValueCol") + labs(title = "First 73
 ```
 
 Title: GPA Among Award Preferences in Student Survey
+
 Data Set Description: 
+  
   Our data set, StudentSurvey, is compiled of a multitude of studentinformation. In this plot, we are using the variables GPA and Awards.
+
 Visualization Description: 
   Our Visualization shows the GPA distributions among students’ award preferences. 
+  
 ```{r}
 attach(StudentSurvey)
 ggplot(StudentSurvey, aes(x = GPA, y = Award, fill = Award)) + geom_boxplot()+
@@ -104,23 +117,34 @@ ggplot(StudentSurvey, aes(x = GPA, y = Award, fill = Award)) + geom_boxplot()+
 ```
 
 
+
+Title: GPA Distributions of Award Preferences
+
+Description of Dataset: 
+  
+  Our data set, StudentSurvey, is compiled of a multitude of studentinformation. In this plot we are using the variables GPA and Awards.
+
+Description of Visualization: 
+  
+  Our Visualization shows the distribution and density of GPA for each of the three award preferences, measuring each category’s density at each GPA interval
+
 ```{r}
 ggplot(StudentSurvey, aes(x=GPA, color = Award ))+ 
   geom_density()
 ```
 
-Title: GPA Distributions of Award Preferences
-Description of Dataset: 
-  Our data set, StudentSurvey, is compiled of a multitude of studentinformation. In this plot we are using the variables GPA and Awards.
-Description of Visualization: 
-  Our Visualization shows the distribution and density of GPA for each of the three award preferences, measuring each category’s density at each GPA interval
   
   
 Confidence Interval Shiny Application:
+
 Title: Intro Stats Confidence Interval Lesson
+
 Data Set Description: 
+  
   Our data set is simulated from normal distributions with mean mu and standard deviation sigma. We use bootstrapping to simulate many outputs from the desired distributions.
+
 Visualization Description: 
+  
   Our Visualizations show distributions of sample means in the simulated data, the interval width of the same data with different confidence levels (the higher the level, the higher the width), and the coverage rate of our confidence intervals over our simulated samples. 
 
 <iframe src=“https://rconnect.bucknell.edu/content/369ef67a-9abf-45e0-9dc0-10745cc77a69” class=“l-screen-inset shaded” height=“1000px”></iframe>

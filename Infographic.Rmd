@@ -7,14 +7,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r}
+```{r, echo = FALSE}
 library(ggplot2)
 library(dplyr)
 library(ggrepel)
+library(magrittr)
+library(cowplot)
 ```
 
 
-```{r}
+```{r, echo = FALSE}
 mydata = read.csv("DATA.csv", header=TRUE)
 attach(mydata)
 subset_data <- subset(mydata, Playoffs == 5)
@@ -35,11 +37,21 @@ team_summary <- mydata %>%
 
 
 
+```{r, echo = FALSE}
+library(tidyverse)
+library(waffle) # remotes::install_github("hrbrmstr/waffle")
+library(patchwork)
+library(lubridate)
+library(extrafont)
+library(ggtext)
+```
 
 
 ```{r, echo = FALSE}
-###INFOGRAPGHIC
- 
+
+
+# Set theme for all plots: 
+
 my_font <- "Arial"
 
 mydata_sub <- mydata[mydata$Team %in% all_teams,]
@@ -51,14 +63,15 @@ teams <- c("Yankees", "WhiteSox", "Royals", "RedSox", "Phillies", "Nationals", "
 team_payroll <- team_summary$Payroll[team_summary$Team %in% teams]
 
 # Create histogram
-ggplot(data.frame(Payroll = team_payroll), aes(x = Payroll)) +
-  geom_histogram(fill = "green", color = "white", bins = 15) +
-  ggtitle("Payroll Distribution of World Series Winners") +
-  xlab("Payroll (in millions)") +
-  ylab("Frequency")
+#HIST_WINNERS = ggplot(data.frame(Payroll = team_payroll), aes(x = Payroll)) +
+  #geom_histogram(fill = "green", color = "white", bins = 15) +
+  #ggtitle("Payroll Distribution of World Series Winners") +
+  #xlab("Payroll (in millions)") +
+  #ylab("Frequency")
 
 
-ggplot(subset_data, aes(x = Payroll, y = Wins, label = Team)) +
+
+REGRESSION_WS = ggplot(subset_data, aes(x = Payroll, y = Wins, label = Team)) +
   geom_point() +
   geom_text_repel() +
   xlab("Payroll") +
@@ -69,6 +82,22 @@ ggplot(subset_data, aes(x = Payroll, y = Wins, label = Team)) +
   ylab("Wins") +
   ggtitle("Scatterplot of Wins vs. Payroll for World Series Winners")
 
-```
 
+
+# Combine plots: 
+
+library(cowplot)
+
+
+
+REGRESSION_WS +
+  plot_annotation(title = "MLB Success and Payroll, What's the Relationship?",
+                  subtitle = "In a sport with no salary cap, how does money behave for winning teams?",
+                  caption = "Data: baseballreference.com", 
+                  theme = theme(plot.title = element_text(color = "#292929", size = 10, face = "bold", family = my_font),
+                                plot.subtitle = element_text(color = "#292929", size = 8, family = my_font),
+                                plot.caption = element_text(color = "grey50", face = "bold.italic", family = my_font),
+                                plot.background = element_rect("#EBEBEB"),
+                                panel.background = element_rect("#EBEBEB")))
+```
 
