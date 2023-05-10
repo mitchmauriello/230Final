@@ -1,7 +1,7 @@
 name: "Mauriello"
-title: "My Website"
+title: "MATH 230 Final Website"
 description: |
-  My Website
+  Content compiled from MATH230 Sprin 2023
 output_dir: "docs"
 navbar:
   right:
