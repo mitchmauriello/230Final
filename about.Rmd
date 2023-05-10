@@ -122,6 +122,8 @@ Data Set Description:
 
   Our data set is compiled of European Stock market data where the indices included are Germany (DAX), UK (FTSE), Belgium (BEL20), Switzerland (SSMI), Denmark (OMX), France (CAC), Italy (MIB30), and the Netherlands (AEX). 
   
+
+
 Visualization Description: 
 
   Our visualization shows a fraction of the DAX stock market data-specifically the first 730 values-and the market fluctuations on each given day. The color scale indicates red for extreme fluctuations and green for passive fluctuation. 
@@ -186,9 +188,9 @@ ggplot_calendar_heatmap(dfData1, "DateCol", "ValueCol") + labs(title = "First 73
 
 Title: GPA Among Award Preferences in Student Survey
 
-Data Set Description: 
-  
-  Our data set, StudentSurvey, is compiled of a multitude of studentinformation. In this plot, we are using the variables GPA and Awards.
+
+Data Set Description: Our data set, StudentSurvey, is compiled of a multitude of studentinformation. In this plot, we are using the variables GPA and Awards.
+
 
 Visualization Description: 
   Our Visualization shows the GPA distributions among students’ award preferences. 
