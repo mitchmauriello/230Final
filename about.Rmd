@@ -31,7 +31,22 @@ data(StudentSurvey)
 
 
 
+
+
+
+
+
+
+
+
+
 Bucknell Phyllotaxis
+
+
+
+
+
+
 
 
 
@@ -42,7 +57,22 @@ print(artwork1)
 
 
 
+
+
+
+
+
+
+
+
 Ying & Yang
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +83,25 @@ print(artwork2)
 
 
 
+
+
+
+
+
+
+
+
+
 American Pixels
+
+
+
+
+
+
+
+
+
 
 
 
@@ -121,6 +169,21 @@ ggplot_calendar_heatmap(dfData1, "DateCol", "ValueCol") + labs(title = "First 73
 
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Title: GPA Among Award Preferences in Student Survey
 
 Data Set Description: 
@@ -130,11 +193,26 @@ Data Set Description:
 Visualization Description: 
   Our Visualization shows the GPA distributions among students’ award preferences. 
   
+  
+  
+  
+  
+  
+  
+  
 ```{r}
 attach(StudentSurvey)
 ggplot(StudentSurvey, aes(x = GPA, y = Award, fill = Award)) + geom_boxplot()+
   guides(fill="none")
 ```
+
+
+
+
+
+
+
+
 
 
 
