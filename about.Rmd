@@ -62,6 +62,13 @@ artwork3 = canvas_diamonds(colors = c("red", "white","blue"))
 print(artwork3)
 ```
 
+
+
+
+
+
+
+
 Title: First 730 Values for DAX
 Data Set Description: 
 
@@ -70,6 +77,10 @@ Data Set Description:
 Visualization Description: 
 
   Our visualization shows a fraction of the DAX stock market data-specifically the first 730 values-and the market fluctuations on each given day. The color scale indicates red for extreme fluctuations and green for passive fluctuation. 
+
+
+
+
 
 
 ```{r}
